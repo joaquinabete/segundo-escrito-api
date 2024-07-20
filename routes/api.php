@@ -19,19 +19,9 @@ Route::get('/personas', [PersonaController::class, 'index']); // Index
 Route::post('/personas', [PersonaController::class, 'store']);  // Store
 Route::get('/personas/{id}', [PersonaController::class, 'show']); // Show
 Route::delete('/personas/{id}', [PersonaController::class, 'destroy']); // Delete
+Route::put('/personas/{id}', [PersonaController::class, 'update']); // Update
 
-/* Route::get('/personas/{id}', function() { // Show
-    return "Mostrando una sola persona";
-});
 
-Route::delete('/personas/{id}', function() { // Destroy
-    return "Eliminando una persona";
-});
-
-Route::put('/personas/{id}', function() { // Update
-    return "Actualizando una persona";
-});
-
-Route::patch('/personas/{id}', function() { // partialupdate
+/* Route::patch('/personas/{id}', function() { // partialupdate
     return "Actualizando un dato de una persona";
 }); */

@@ -100,4 +100,47 @@ class PersonaController extends Controller
         return response()->json($data, 200);
 
     }
+
+    public function update(Request $request, $id){
+
+        $persona = Persona::find($id);
+
+        if (!$persona) {
+            $data = [
+                'message' => 'Persona no encontrada',
+                'status' => 404
+            ];
+            return response()->json($data, 404);
+        }
+
+        $validator = Validator::make($request->all(), [
+            'id' => 'required',
+            'nombre' => 'required|max:30',
+            'apellido' => 'required|max:30',
+            'telefono' => 'required|digits:9'
+        ]);
+
+        if ($validator->fails()) {
+            $data = [
+                'message' => 'Error en la validacion de datos',
+                'error' => $validator->errors(),
+                'status' => 400
+            ];
+            return response()->json($data, 400);
+        }
+
+        $persona->id = $request->id;
+        $persona->nombre = $request->nombre;
+        $persona->apellido = $request->apellido;
+        $persona->telefono = $request->telefono;
+
+        $persona->save();
+
+        $data = [
+            'message' => 'Persona Actualizada',
+            'persona' => $persona,
+            'status' => 200
+        ];
+        return response()->json($data, 200);
+    }
 }
