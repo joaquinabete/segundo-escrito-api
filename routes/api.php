@@ -14,6 +14,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('/personas', function() { // Index
+    return "Listando personas";
+});
+
+Route::get('/personas/{id}', function() { // Show
+    return "Mostrando una sola persona";
+});
+
+Route::post('/personas', function() { // Store
+    return "Creando una nueva persona";
+});
+
+Route::delete('/personas/{id}', function() { // Destroy
+    return "Eliminando una persona";
+});
+
+Route::put('/personas/{id}', function() { // Update
+    return "Actualizando una persona";
+});
+
+Route::patch('/personas/{id}', function() { // partialupdate
+    return "Actualizando un dato de una persona";
 });
