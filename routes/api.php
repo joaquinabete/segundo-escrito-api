@@ -15,9 +15,7 @@ use App\Http\Controllers\PersonaController;
 |
 */
 
-Route::get('/personas', function() { // Index
-    return "Listando personas";
-});
+Route::get('/personas', [PersonaController::class, 'index']);
 
 Route::get('/personas/{id}', function() { // Show
     return "Mostrando una sola persona";
