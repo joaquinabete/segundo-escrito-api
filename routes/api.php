@@ -15,14 +15,11 @@ use App\Http\Controllers\PersonaController;
 |
 */
 
-Route::get('/personas', [PersonaController::class, 'index']);
+Route::get('/personas', [PersonaController::class, 'index']); // Index
+Route::post('/personas', [PersonaController::class, 'store']);  // Store;
 
-Route::get('/personas/{id}', function() { // Show
+/* Route::get('/personas/{id}', function() { // Show
     return "Mostrando una sola persona";
-});
-
-Route::post('/personas', function() { // Store
-    return "Creando una nueva persona";
 });
 
 Route::delete('/personas/{id}', function() { // Destroy
@@ -35,4 +32,4 @@ Route::put('/personas/{id}', function() { // Update
 
 Route::patch('/personas/{id}', function() { // partialupdate
     return "Actualizando un dato de una persona";
-});
+}); */
