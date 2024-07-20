@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Persona;
-use Illuminate\Support\Facades\Validator;  // Importamos el paquete del validator para el metodo store()
+use Illuminate\Support\Facades\Validator;
 
 class PersonaController extends Controller
 {
@@ -61,4 +61,23 @@ class PersonaController extends Controller
         return response()->json($data, 200);
     }
 
+    public function show($id) {
+        $persona = Persona::find($id);
+
+        if (!$persona) {
+            $data = [
+                'message' => 'Persona no encontrada',
+                'status' => 404
+            ];
+            return response()->json($data, 404);
+        }
+
+        $data = [
+            'persona' => $persona,
+            'status' => 200
+        ];
+        return response()->json($data, 200);
+    }
+
+    
 }
