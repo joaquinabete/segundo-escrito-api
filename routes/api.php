@@ -18,7 +18,6 @@ use App\Http\Controllers\PersonaController;
 Route::get('/personas', [PersonaController::class, 'index']); // Index
 Route::post('/personas', [PersonaController::class, 'store']);  // Store
 Route::get('/personas/{id}', [PersonaController::class, 'show']); // Show
-Route::delete('/personas/{id}', [PersonaController::class, 'destroy']); // Delete
 
 /* Route::get('/personas/{id}', function() { // Show
     return "Mostrando una sola persona";
